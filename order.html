@@ -3,54 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BASS Order Bot | Demo</title>
+    <title>BASS Order Bot | Professional Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
-<body class="bg-slate-50 p-4">
-<div>
-    <label class="block text-sm font-bold text-slate-700">Phone Number (WhatsApp)</label>
-    <div class="relative">
-        <span class="absolute left-3 top-3 text-slate-400">+234</span>
-        <input type="tel" id="custPhone" placeholder="803 000 0000" required 
-               class="w-full p-3 pl-14 bg-slate-100 rounded-xl outline-none focus:ring-2 ring-cyan-500">
-    </div>
-</div>
-    
-    <div class="max-w-md mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
-        <div class="bg-slate-900 p-6 text-white">
-            <h1 class="text-2xl font-bold">Quick Order Bot</h1>
-            <p class="text-slate-400 text-sm">BASS Ltd. Kitchen Automation</p>
+<body class="bg-slate-50 p-4 sm:p-8">
+
+    <div class="max-w-md mx-auto bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100">
+        <div class="bg-slate-900 p-8 text-white relative">
+            <div class="flex items-center space-x-3 mb-2">
+                <div class="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center font-bold">B</div>
+                <span class="text-sm font-bold uppercase tracking-widest text-cyan-400">Kitchen Sync v2</span>
+            </div>
+            <h1 class="text-3xl font-extrabold">Place Order</h1>
+            <p class="text-slate-400 text-sm mt-1">Direct to kitchen • No WhatsApp redirect</p>
         </div>
 
-        <form id="orderForm" class="p-6 space-y-4">
+        <div id="successState" class="hidden p-10 text-center animate-fade-in">
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="check-circle-2" class="w-12 h-12"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900">Order Received!</h2>
+            <p class="text-slate-600 mt-3 leading-relaxed">
+                Thanks <span id="userName" class="font-bold text-slate-900"></span>! We have sent your order to the kitchen. We will message you on WhatsApp shortly to confirm.
+            </p>
+            <button onclick="location.reload()" class="mt-8 bg-slate-100 text-slate-600 px-6 py-3 rounded-xl font-bold hover:bg-slate-200 transition">Place Another Order</button>
+        </div>
+
+        <form id="orderForm" class="p-8 space-y-5">
             <div>
-                <label class="block text-sm font-bold text-slate-700">Customer Name</label>
-                <input type="text" id="custName" required class="w-full p-3 bg-slate-100 rounded-xl outline-none focus:ring-2 ring-cyan-500">
+                <label class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">Full Name</label>
+                <input type="text" id="custName" placeholder="e.g. Adebayo Kunle" required 
+                       class="w-full p-4 bg-slate-100 rounded-2xl outline-none focus:ring-2 ring-cyan-500 transition">
             </div>
 
             <div>
-                <label class="block text-sm font-bold text-slate-700">Select Meal</label>
-                <select id="meal" class="w-full p-3 bg-slate-100 rounded-xl outline-none">
-                    <option>Jollof Rice & Chicken</option>
-                    <option>Pounded Yam & Egusi</option>
+                <label class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">WhatsApp Number</label>
+                <div class="relative">
+                    <span class="absolute left-4 top-4 text-slate-400 font-bold">+234</span>
+                    <input type="tel" id="custPhone" placeholder="803 000 0000" required 
+                           class="w-full p-4 pl-16 bg-slate-100 rounded-2xl outline-none focus:ring-2 ring-cyan-500 transition">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">Select Your Meal</label>
+                <select id="meal" class="w-full p-4 bg-slate-100 rounded-2xl outline-none appearance-none cursor-pointer">
+                    <option>Jollof Rice & Spicy Chicken</option>
+                    <option>Pounded Yam & Egusi Soup</option>
                     <option>Fried Rice & Turkey</option>
-                    <option>Beef Burger & Fries</option>
+                    <option>Special Pasta Combo</option>
                 </select>
             </div>
 
             <div>
-                <label class="block text-sm font-bold text-slate-700">Quantity</label>
-                <input type="number" id="qty" value="1" min="1" class="w-full p-3 bg-slate-100 rounded-xl outline-none">
+                <label class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">Quantity</label>
+                <input type="number" id="qty" value="1" min="1" 
+                       class="w-full p-4 bg-slate-100 rounded-2xl outline-none focus:ring-2 ring-cyan-500 transition">
             </div>
 
             <div>
-                <label class="block text-sm font-bold text-slate-700">Special Instructions (Optional)</label>
-                <textarea id="notes" placeholder="e.g. No onions, extra pepper..." class="w-full p-3 bg-slate-100 rounded-xl outline-none"></textarea>
+                <label class="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">Special Instructions</label>
+                <textarea id="notes" placeholder="No onions, extra pepper..." rows="2" 
+                          class="w-full p-4 bg-slate-100 rounded-2xl outline-none focus:ring-2 ring-cyan-500 transition"></textarea>
             </div>
 
-            <button type="submit" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-green-600 transition">
-                <i data-lucide="message-circle"></i> Send Order via WhatsApp
+            <button type="submit" id="submitBtn" class="w-full bg-cyan-500 text-slate-900 font-black py-5 rounded-2xl flex items-center justify-center gap-3 hover:bg-slate-900 hover:text-white transition-all shadow-lg shadow-cyan-500/20 active:scale-95">
+                <i data-lucide="send" class="w-5 h-5"></i> CONFIRM ORDER
             </button>
         </form>
     </div>
@@ -59,55 +82,52 @@
         lucide.createIcons();
 
         const form = document.getElementById('orderForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successState = document.getElementById('successState');
+        const userNameSpan = document.getElementById('userName');
+
         form.onsubmit = async (e) => {
-    e.preventDefault();
+            e.preventDefault();
 
-    const submitBtn = e.target.querySelector('button');
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = "Processing Order...";
+            // 1. Loading State
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<svg class="animate-spin h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending to Kitchen...`;
 
-    // 1. Capture Form Data
-    const rawPhone = document.getElementById('custPhone').value;
-    // Remove leading zero if present and add 234
-    const cleanPhone = "234" + rawPhone.replace(/^0+/, '').replace(/\s/g, '');
-    
-    const orderData = {
-        name: document.getElementById('custName').value,
-        phone: cleanPhone,
-        meal: document.getElementById('meal').value,
-        qty: document.getElementById('qty').value,
-        notes: document.getElementById('notes').value || "None"
-    };
+            // 2. Format Data
+            const rawPhone = document.getElementById('custPhone').value;
+            const cleanPhone = "234" + rawPhone.replace(/^0+/, '').replace(/\s/g, '');
+            const name = document.getElementById('custName').value;
 
-    // 2. Send to Google Script
-    try {
-        await fetch("https://script.google.com/macros/s/AKfycbyEa1TfcVuvuBxdkRgoHUfjQa8dc7B1fSvm52DL1ndBugbrbF6Uwt82BPk-1wSNrcN__Q/exec", {
-            method: 'POST',
-            mode: 'no-cors',
-            body: JSON.stringify(orderData)
-        });
+            const orderData = {
+                name: name,
+                phone: cleanPhone,
+                meal: document.getElementById('meal').value,
+                qty: document.getElementById('qty').value,
+                notes: document.getElementById('notes').value || "None"
+            };
 
-        // 3. Success UI (The premium confirmation screen)
-        document.getElementById('orderForm').innerHTML = `
-            <div class="text-center py-10">
-                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i data-lucide="check" class="w-8 h-8"></i>
-                </div>
-                <h2 class="text-xl font-bold">Order Received!</h2>
-                <p class="text-slate-500 mt-2">Your order has been received. We will message you on WhatsApp shortly.</p>
-            </div>
-        `;
-        lucide.createIcons();
-    } catch (err) {
-        alert("Error connecting to server. Please check your data.");
-        submitBtn.disabled = false;
-    }
-};
-</script>
+            // 3. Send to Google Webhook
+            const webhookURL = "https://script.google.com/macros/s/AKfycbyEa1TfcVuvuBxdkRgoHUfjQa8dc7B1fSvm52DL1ndBugbrbF6Uwt82BPk-1wSNrcN__Q/exec"; 
+
+            try {
+                // We use 'no-cors' mode for Google Apps Script Web Apps
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(orderData)
+                });
+
+                // 4. Update UI to Success
+                form.classList.add('hidden');
+                successState.classList.remove('hidden');
+                userNameSpan.innerText = name;
+                
+            } catch (err) {
+                alert("Connection error. Please check your internet.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = "CONFIRM ORDER";
+            }
+        };
+    </script>
 </body>
-
 </html>
-
-
-
-
