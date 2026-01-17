@@ -61,7 +61,7 @@
     const notes = document.getElementById('notes').value || "None";
 
     // 2. CAPTURE: Send to your Google Apps Script (The Excel Bridge)
-    const webhookURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGnmDzN_ZC74DGKCCtZto76K9FcBp0HffhEONxFIbvJ0GoEGNgH8q8ohx9gUivuGbb_8j5-n_eBcas/pub?output=csv"; 
+    const webhookURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGnmDzN_ZC74DGKCCtZto76K9FcBp0HffhEONxFIbvJ0GoEGNgH8q8ohx9gUivuGbb_8j5-n_eBcas/pubhtml"; 
     
     // We use 'fetch' to send data to the background without refreshing the page
     fetch(webhookURL, {
@@ -93,3 +93,4 @@
 </body>
 
 </html>
+
