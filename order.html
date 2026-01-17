@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASS Order Bot | Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 p-4">
+
+    <div class="max-w-md mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+        <div class="bg-slate-900 p-6 text-white">
+            <h1 class="text-2xl font-bold">Quick Order Bot</h1>
+            <p class="text-slate-400 text-sm">BASS Ltd. Kitchen Automation</p>
+        </div>
+
+        <form id="orderForm" class="p-6 space-y-4">
+            <div>
+                <label class="block text-sm font-bold text-slate-700">Customer Name</label>
+                <input type="text" id="custName" required class="w-full p-3 bg-slate-100 rounded-xl outline-none focus:ring-2 ring-cyan-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-slate-700">Select Meal</label>
+                <select id="meal" class="w-full p-3 bg-slate-100 rounded-xl outline-none">
+                    <option>Jollof Rice & Chicken</option>
+                    <option>Pounded Yam & Egusi</option>
+                    <option>Fried Rice & Turkey</option>
+                    <option>Beef Burger & Fries</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-slate-700">Quantity</label>
+                <input type="number" id="qty" value="1" min="1" class="w-full p-3 bg-slate-100 rounded-xl outline-none">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-slate-700">Special Instructions (Optional)</label>
+                <textarea id="notes" placeholder="e.g. No onions, extra pepper..." class="w-full p-3 bg-slate-100 rounded-xl outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-green-600 transition">
+                <i data-lucide="message-circle"></i> Send Order via WhatsApp
+            </button>
+        </form>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const form = document.getElementById('orderForm');
+        
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+
+            // 1. Get Data
+            const name = document.getElementById('custName').value;
+            const meal = document.getElementById('meal').value;
+            const qty = document.getElementById('qty').value;
+            const notes = document.getElementById('notes').value;
+
+            // 2. Format WhatsApp Message
+            const kitchenNumber = "2348066091520"; // Replace with client's Nigerian WhatsApp number
+            const message = `*NEW ORDER ALERT*%0A------------------%0A*Customer:* ${name}%0A*Item:* ${meal}%0A*Qty:* ${qty}%0A*Notes:* ${notes}%0A------------------%0A_Sent via BASS Order Bot_`;
+
+            // 3. Send to Cloud (The Bridge to Excel)
+            // You can use Formspree, Zapier, or a Google Script Webhook URL here
+            const webhookURL = "https://script.google.com/macros/s/AKfycbyEa1TfcVuvuBxdkRgoHUfjQa8dc7B1fSvm52DL1ndBugbrbF6Uwt82BPk-1wSNrcN__Q/exec"; 
+            
+            fetch(webhookURL, {
+                method: 'POST',
+                body: JSON.stringify({ name, meal, qty, notes, timestamp: new Date() }),
+                headers: { 'Content-Type': 'application/json' }
+            }).catch(err => console.log("Cloud sync failed, but WhatsApp will still work."));
+
+            // 4. Trigger WhatsApp
+            window.open(`https://wa.me/${kitchenNumber}?text=${message}`, '_blank');
+        };
+    </script>
+</body>
+</html>

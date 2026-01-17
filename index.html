@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASS | Business Automation & Support Service Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #06b6d4, transparent),
+                        radial-gradient(circle at bottom left, #0f172a, #1e293b);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center transition-all duration-300" id="navbar">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
+            <span class="text-2xl font-extrabold tracking-tight text-slate-900">BASS</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+            <a href="#services" class="hover:text-cyan-600">Services</a>
+            <a href="#calculator" class="hover:text-cyan-600">ROI Calculator</a>
+            <a href="#contact" class="hover:text-cyan-600">Contact</a>
+        </div>
+
+        <a href="https://wa.me/yournumber" class="hidden md:block bg-slate-900 text-white px-6 py-2 rounded-full font-semibold hover:bg-cyan-600 transition">Get Started</a>
+
+        <button class="md:hidden text-slate-900" id="menu-btn">
+            <i data-lucide="menu"></i>
+        </button>
+    </nav>
+
+    <section class="hero-gradient min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-white space-y-6 animate-fade-in">
+                <span class="bg-cyan-500/20 text-cyan-400 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest border border-cyan-500/30">Startup Stage Support</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+                    Automate Your Business in <span class="text-cyan-400">Nigeria</span>.
+                </h1>
+                <p class="text-lg text-slate-300 max-w-lg">
+                    We bridge the gap between manual labor and digital efficiency. Custom VBA and Web Apps built specifically for SMEs.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-cyan-500 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg text-center hover:bg-white transition">Book a Free Audit</a>
+                    <a href="#services" class="border border-slate-700 bg-slate-800/50 px-8 py-4 rounded-xl font-bold text-lg text-center hover:bg-slate-700 transition">View Our Sectors</a>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="w-full h-[500px] bg-cyan-500/10 rounded-3xl border border-white/10 glass flex items-center justify-center">
+                    <i data-lucide="cpu" class="w-32 h-32 text-cyan-400 animate-pulse"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-slate-900 mb-4">Solutions Built for Your Industry</h2>
+            <p class="text-slate-600">Specialized automation for the core of Nigeria's economy.</p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-2xl hover:shadow-cyan-500/10 transition group">
+                <div class="w-12 h-12 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-600 mb-6 group-hover:bg-cyan-500 group-hover:text-white transition">
+                    <i data-lucide="shopping-cart"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Retail & Groceries</h3>
+                <p class="text-slate-600 mb-4">Automate pricing updates during inflation and track expiry dates to stop stock loss.</p>
+                <ul class="text-sm text-slate-500 space-y-2">
+                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-cyan-500"></i> Smart Price Updater</li>
+                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-cyan-500"></i> Expiry Alert System</li>
+                </ul>
+            </div>
+
+            <div class="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-2xl transition group">
+                <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-500 group-hover:text-white transition">
+                    <i data-lucide="graduation-cap"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Educational Institutions</h3>
+                <p class="text-slate-600 mb-4">Eliminate manual result compiling and automate school fee reconciliation.</p>
+                <ul class="text-sm text-slate-500 space-y-2">
+                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-indigo-500"></i> Result Sheet Compiler</li>
+                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-indigo-500"></i> Fee Management SMS</li>
+                </ul>
+            </div>
+
+            <div class="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-2xl transition group">
+                <div class="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-500 group-hover:text-white transition">
+                    <i data-lucide="factory"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Small Manufacturing</h3>
+                <p class="text-slate-600 mb-4">Calculate real-time production costs and track raw material levels effortlessly.</p>
+                <ul class="text-sm text-slate-500 space-y-2">
+                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-emerald-500"></i> BOM Costing Calculator</li>
+                    <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-2 text-emerald-500"></i> Production Log Web App</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 px-6 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto glass p-10 rounded-[2rem] border-slate-700 text-slate-900">
+            <h2 class="text-3xl font-bold text-center mb-8">What Could You Save?</h2>
+            <div class="space-y-8">
+                <div>
+                    <label class="block font-semibold mb-4 text-slate-700">Daily hours spent on manual data entry:</label>
+                    <input type="range" min="1" max="10" value="3" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cyan-500" id="hours-slider">
+                    <div class="text-center mt-2 font-bold text-cyan-600"><span id="hours-val">3</span> Hours</div>
+                </div>
+                <div class="bg-cyan-50 p-6 rounded-2xl text-center border border-cyan-100">
+                    <p class="text-slate-500 text-sm uppercase font-bold tracking-widest mb-2">Estimated Yearly Time Reclaimed</p>
+                    <h3 class="text-5xl font-black text-cyan-600"><span id="saved-val">780</span> <small class="text-lg">Hours</small></h3>
+                    <p class="mt-4 text-slate-600">That's over 30 days of growth work BASS can give back to you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+  <section id="testimonials" class="py-24 px-6 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                <div class="max-w-xl">
+                    <span class="text-cyan-600 font-bold tracking-widest uppercase text-sm">Success Stories</span>
+                    <h2 class="text-4xl font-bold mt-2 text-slate-900">Trusted by Nigerian SME Owners</h2>
+                </div>
+                <div class="flex space-x-2">
+                    <div class="flex text-yellow-400">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-slate-700">4.9/5 Rating</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-[2rem] border-slate-100 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+                    <div>
+                        <i data-lucide="quote" class="text-cyan-500 w-10 h-10 mb-6 opacity-20"></i>
+                        <p class="text-slate-600 italic mb-8 leading-relaxed">
+                            "With the constant price changes in Nigeria right now, BASS's Smart Price Updater saved my supermarket from heavy losses. We update 500+ items in seconds instead of days."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-500">OA</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 leading-none">Mrs. Oluchi A.</h4>
+                            <span class="text-sm text-slate-500 text-cyan-600">Supermarket Owner, Lagos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] border-slate-100 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+                    <div>
+                        <i data-lucide="quote" class="text-indigo-500 w-10 h-10 mb-6 opacity-20"></i>
+                        <p class="text-slate-600 italic mb-8 leading-relaxed">
+                            "The Result Sheet Compiler is a miracle. Our teachers used to stay back for weeks after exams. Now, everything is ready in 2 hours. The parents love the new professional look."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-500">EM</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 leading-none">Engr. Musa</h4>
+                            <span class="text-sm text-slate-500 text-indigo-600">Proprietor, Abuja</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] border-slate-100 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+                    <div>
+                        <i data-lucide="quote" class="text-emerald-500 w-10 h-10 mb-6 opacity-20"></i>
+                        <p class="text-slate-600 italic mb-8 leading-relaxed">
+                            "I was skeptical about VBA automation until I saw BASS build a custom tool that reconciled our entire year's trial balance in minutes. It's like having a 24/7 assistant."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-500">CJ</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 leading-none">Chidi J.</h4>
+                            <span class="text-sm text-slate-500 text-emerald-600">Audit Partner, Port Harcourt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <section id="contact" class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold">Start Your Journey</h2>
+            <p class="text-slate-600">Send us a brief, and we'll show you what we can automate.</p>
+        </div>
+        <form class="space-y-4">
+            <div class="grid md:grid-cols-2 gap-4">
+                <input type="text" placeholder="Full Name" class="w-full p-4 rounded-xl border border-slate-200 focus:border-cyan-500 outline-none transition" required>
+                <input type="email" placeholder="Business Email" class="w-full p-4 rounded-xl border border-slate-200 focus:border-cyan-500 outline-none transition" required>
+            </div>
+            <select class="w-full p-4 rounded-xl border border-slate-200 focus:border-cyan-500 outline-none transition">
+                <option>Select Industry</option>
+                <option>Groceries / Retail</option>
+                <option>School</option>
+                <option>Professional Service</option>
+                <option>Manufacturing</option>
+            </select>
+            <textarea placeholder="Tell us about your biggest manual headache..." rows="4" class="w-full p-4 rounded-xl border border-slate-200 focus:border-cyan-500 outline-none transition"></textarea>
+            <button class="w-full bg-slate-900 text-white p-4 rounded-xl font-bold text-lg hover:bg-cyan-600 transition shadow-lg shadow-slate-900/20">Send Inquiry</button>
+        </form>
+    </section>
+
+    <footer class="bg-white border-t border-slate-100 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center text-white text-sm font-bold">B</div>
+                <span class="font-bold">BASS Ltd.</span>
+            </div>
+            <p class="text-slate-500 text-sm">© 2026 Business Automation & Support Service Limited. Lagos, Nigeria.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-slate-400 hover:text-cyan-500"><i data-lucide="linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-cyan-500"><i data-lucide="twitter"></i></a>
+                <a href="https://wa.me/yournumber" class="text-slate-400 hover:text-green-500"><i data-lucide="message-circle"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'shadow-md');
+                nav.classList.add('py-4');
+            }
+        });
+
+        // ROI Calculator Logic
+        const slider = document.getElementById('hours-slider');
+        const hourLabel = document.getElementById('hours-val');
+        const savedLabel = document.getElementById('saved-val');
+
+        slider.oninput = function() {
+            hourLabel.innerHTML = this.value;
+            // Calculation: Hours * 5 days * 52 weeks
+            savedLabel.innerHTML = this.value * 5 * 52;
+        }
+
+        // Mobile Menu (Simple Alert for Demo)
+        document.getElementById('menu-btn').onclick = () => {
+            alert("Mobile Menu functionality would be a simple slide-over. Built for thumb-navigation!");
+        };
+    </script>
+</body>
+</html>
+
